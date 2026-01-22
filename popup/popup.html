@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coretax Scraper</title>
+  <style>
+    body {
+      width: 320px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      margin: 0;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0 0 16px 0;
+      color: #333;
+    }
+    .button {
+      width: 100%;
+      padding: 10px 16px;
+      margin-bottom: 8px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .button-primary {
+      background-color: #0066cc;
+      color: white;
+    }
+    .button-primary:hover {
+      background-color: #0052a3;
+    }
+    .button-secondary {
+      background-color: #28a745;
+      color: white;
+    }
+    .button-secondary:hover {
+      background-color: #218838;
+    }
+    .button-reset {
+      background-color: #ffc107;
+      color: #000;
+    }
+    .button-reset:hover {
+      background-color: #e0a800;
+    }
+    .button-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+    .button-danger:hover {
+      background-color: #c82333;
+    }
+    .button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .status {
+      padding: 8px;
+      margin-top: 12px;
+      border-radius: 4px;
+      font-size: 13px;
+      display: none;
+    }
+    .status.info {
+      background-color: #e7f3ff;
+      color: #0066cc;
+      display: block;
+    }
+    .status.success {
+      background-color: #d4edda;
+      color: #155724;
+      display: block;
+    }
+    .status.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      display: block;
+    }
+    .data-count {
+      margin-top: 12px;
+      padding: 8px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Coretax Scraper</h1>
+  
+  <button id="scrapeBtn" class="button button-primary">
+    Mulai Scraping
+  </button>
+  
+  <button id="exportBtn" class="button button-secondary" disabled>
+    Export ke Excel
+  </button>
+  
+  <button id="resetBtn" class="button button-reset">
+    Reset & Reload Halaman
+  </button>
+  
+  <button id="clearBtn" class="button button-danger">
+    Hapus Data Tersimpan
+  </button>
+  
+  <div id="dataCount" class="data-count" style="display: none;">
+    Data tersimpan: <strong>0</strong> records
+  </div>
+  
+  <div id="status" class="status"></div>
+
+  <script src="../lib/write-excel-file.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

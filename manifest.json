@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Coretax Scraper",
+  "version": "1.0.0",
+  "description": "Scrape dan download Faktur Pajak Keluaran dari Coretax DJP secara otomatis.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://coretaxdjp.pajak.go.id/*"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Coretax Faktur Pajak Scraper"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://coretaxdjp.pajak.go.id/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
